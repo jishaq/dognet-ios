@@ -15,6 +15,7 @@
 		E31A8EF01CCEA2D900604C0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31A8EEE1CCEA2D900604C0A /* LaunchScreen.storyboard */; };
 		E31A8EFB1CCEA2D900604C0A /* DognetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31A8EFA1CCEA2D900604C0A /* DognetTests.swift */; };
 		E31A8F061CCEA2D900604C0A /* DognetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31A8F051CCEA2D900604C0A /* DognetUITests.swift */; };
+		E37B67B01CD13B8500D602E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37B67AF1CD13B8500D602E3 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E31A8F011CCEA2D900604C0A /* DognetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DognetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E31A8F051CCEA2D900604C0A /* DognetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DognetUITests.swift; sourceTree = "<group>"; };
 		E31A8F071CCEA2D900604C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E37B67AF1CD13B8500D602E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37B67B01CD13B8500D602E3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +82,7 @@
 		E31A8ED71CCEA2D800604C0A = {
 			isa = PBXGroup;
 			children = (
+				E37B67AF1CD13B8500D602E3 /* MapKit.framework */,
 				E31A8EE21CCEA2D800604C0A /* Dognet */,
 				E31A8EF91CCEA2D900604C0A /* DognetTests */,
 				E31A8F041CCEA2D900604C0A /* DognetUITests */,
@@ -196,6 +200,11 @@
 				TargetAttributes = {
 					E31A8EDF1CCEA2D800604C0A = {
 						CreatedOnToolsVersion = 7.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E31A8EF51CCEA2D900604C0A = {
 						CreatedOnToolsVersion = 7.3;
