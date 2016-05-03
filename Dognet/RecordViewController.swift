@@ -39,11 +39,17 @@ extension CLAuthorizationStatus: CustomStringConvertible {
 class RecordViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var startRecordingButton: UIButton!
+    @IBOutlet weak var stopRecordingButton: UIButton!
     
     var locationManager: CLLocationManager!
+    var currentlyRecording = false  // Eventually we'll probably read this from a pref
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Update status of the start & stop recording buttons:
+        refreshRecordButtons()
         
         locationManager = CLLocationManager()
         
@@ -87,6 +93,27 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         // Log:
         print("Location Manager failed with error \(error)")
     }
+    
+    /*
+     * Update enablement state of start/stop recording buttons
+     */
+    func refreshRecordButtons() {
+        startRecordingButton.enabled = currentlyRecording ? false : true
+        stopRecordingButton.enabled  = currentlyRecording ? true : false
+    }
 
+    @IBAction func recordingButtonToggled(sender: UIButton) {
+        // TODO: This is very brittle - if the name of the button changes this will break
+        if (sender.currentTitle!.containsString("Stop")) {
+            print("Stop recording button tapped")
+            currentlyRecording = false
+        }
+        else {
+            print("Start recording button tapped")
+            currentlyRecording = true
+        }
+        
+        refreshRecordButtons()        
+    }
 }
 

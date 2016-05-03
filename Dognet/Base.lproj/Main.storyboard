@@ -61,10 +61,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqv-T3-8De" userLabel="Start">
                                 <rect key="frame" x="20" y="513" width="108" height="30"/>
                                 <state key="normal" title="Start Recording"/>
+                                <connections>
+                                    <action selector="recordingButtonToggled:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="eiE-s4-PZE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXC-NR-9LN" userLabel="Stop">
                                 <rect key="frame" x="474" y="513" width="106" height="30"/>
                                 <state key="normal" title="Stop Recording"/>
+                                <connections>
+                                    <action selector="recordingButtonToggled:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="nxr-nM-SWP"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Information will go here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DJU-aD-zL2" userLabel="Log">
                                 <rect key="frame" x="20" y="425" width="560" height="80"/>
@@ -97,6 +103,8 @@
                     <tabBarItem key="tabBarItem" title="Record" image="second" id="cPa-gy-q4n" userLabel="Record"/>
                     <connections>
                         <outlet property="map" destination="2lK-qw-RI8" id="zMd-u7-j0J"/>
+                        <outlet property="startRecordingButton" destination="uqv-T3-8De" id="4xq-dW-i4G"/>
+                        <outlet property="stopRecordingButton" destination="BXC-NR-9LN" id="TSJ-mH-19q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
