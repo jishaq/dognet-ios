@@ -70,7 +70,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         map.showsUserLocation = (status == .AuthorizedWhenInUse)
         
         // Dump log statement; uses my custom CLAuthorizationStatus protocol extension
-        print("Location Manager authorization status changed to \(status))")
+        print("Location Manager authorization status changed to \(status)")
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
