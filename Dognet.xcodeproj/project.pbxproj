@@ -16,6 +16,10 @@
 		E31A8EFB1CCEA2D900604C0A /* DognetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31A8EFA1CCEA2D900604C0A /* DognetTests.swift */; };
 		E31A8F061CCEA2D900604C0A /* DognetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31A8F051CCEA2D900604C0A /* DognetUITests.swift */; };
 		E37B67B01CD13B8500D602E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E37B67AF1CD13B8500D602E3 /* MapKit.framework */; };
+		E39EE8111CE3971C00E16885 /* DogPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39EE8101CE3971C00E16885 /* DogPark.swift */; };
+		E39EE8131CE3985E00E16885 /* BristleconeBeach.plist in Resources */ = {isa = PBXBuildFile; fileRef = E39EE8121CE3985E00E16885 /* BristleconeBeach.plist */; };
+		E3CE06BA1CD9811C00B9EC15 /* DogParkMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE06B91CD9811C00B9EC15 /* DogParkMapOverlay.swift */; };
+		E3CE06BC1CD9812900B9EC15 /* MapPathRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE06BB1CD9812900B9EC15 /* MapPathRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		E31A8F051CCEA2D900604C0A /* DognetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DognetUITests.swift; sourceTree = "<group>"; };
 		E31A8F071CCEA2D900604C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E37B67AF1CD13B8500D602E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E39EE8101CE3971C00E16885 /* DogPark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogPark.swift; sourceTree = "<group>"; };
+		E39EE8121CE3985E00E16885 /* BristleconeBeach.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BristleconeBeach.plist; sourceTree = "<group>"; };
+		E3CE06B91CD9811C00B9EC15 /* DogParkMapOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogParkMapOverlay.swift; sourceTree = "<group>"; };
+		E3CE06BB1CD9812900B9EC15 /* MapPathRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPathRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 			children = (
 				E37B67AF1CD13B8500D602E3 /* MapKit.framework */,
 				E31A8EE21CCEA2D800604C0A /* Dognet */,
+				E3CE06B81CD980ED00B9EC15 /* MapOverlay */,
 				E31A8EF91CCEA2D900604C0A /* DognetTests */,
 				E31A8F041CCEA2D900604C0A /* DognetUITests */,
 				E31A8EE11CCEA2D800604C0A /* Products */,
@@ -110,6 +119,8 @@
 				E31A8EEC1CCEA2D900604C0A /* Assets.xcassets */,
 				E31A8EEE1CCEA2D900604C0A /* LaunchScreen.storyboard */,
 				E31A8EF11CCEA2D900604C0A /* Info.plist */,
+				E39EE8101CE3971C00E16885 /* DogPark.swift */,
+				E39EE8121CE3985E00E16885 /* BristleconeBeach.plist */,
 			);
 			path = Dognet;
 			sourceTree = "<group>";
@@ -130,6 +141,15 @@
 				E31A8F071CCEA2D900604C0A /* Info.plist */,
 			);
 			path = DognetUITests;
+			sourceTree = "<group>";
+		};
+		E3CE06B81CD980ED00B9EC15 /* MapOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				E3CE06B91CD9811C00B9EC15 /* DogParkMapOverlay.swift */,
+				E3CE06BB1CD9812900B9EC15 /* MapPathRenderer.swift */,
+			);
+			name = MapOverlay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E31A8EF01CCEA2D900604C0A /* LaunchScreen.storyboard in Resources */,
+				E39EE8131CE3985E00E16885 /* BristleconeBeach.plist in Resources */,
 				E31A8EED1CCEA2D900604C0A /* Assets.xcassets in Resources */,
 				E31A8EEB1CCEA2D900604C0A /* Main.storyboard in Resources */,
 			);
@@ -269,8 +290,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E31A8EE81CCEA2D900604C0A /* RecordViewController.swift in Sources */,
+				E39EE8111CE3971C00E16885 /* DogPark.swift in Sources */,
+				E3CE06BC1CD9812900B9EC15 /* MapPathRenderer.swift in Sources */,
 				E31A8EE41CCEA2D900604C0A /* AppDelegate.swift in Sources */,
 				E31A8EE61CCEA2D900604C0A /* FirstViewController.swift in Sources */,
+				E3CE06BA1CD9811C00B9EC15 /* DogParkMapOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

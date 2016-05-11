@@ -44,6 +44,7 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
     var currentlyRecording = false  // Eventually we'll probably read this from a pref
+    var dogPark = DogPark(filename: "BristleconeBeach")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +67,14 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         
         // Fire up location manager now:
-        locationManager.startUpdatingLocation()
+        //locationManager.startUpdatingLocation()
         
+        // Center the map on the bounding box for the park:
+        let latDelta = dogPark.overlayTopLeftCoordinate.latitude - dogPark.overlayBottomRightCoordinate.latitude
+        let span = MKCoordinateSpanMake(fabs(latDelta), 0.0)
+        let region = MKCoordinateRegionMake(dogPark.midCoordinate, span)
+        map.mapType = MKMapType.Satellite
+        map.region = region
     }
     
     
@@ -87,11 +94,40 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
             let region = MapKit.MKCoordinateRegionMakeWithDistance(centerCoordinate, 2000, 2000)
             map.setRegion(region, animated: true)
         }
+        
+        print(locations[0])
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         // Log:
         print("Location Manager failed with error \(error)")
+    }
+    
+
+    func addParkBoundary() {
+        var boundary = [CLLocationCoordinate2D]()
+        let boundaryPointsCount: NSInteger = 4
+
+        // Rough corners of Bristlecone:
+        boundary.append(CLLocationCoordinate2D(latitude:  39.182154,  longitude: -120.115496)) // Top Right
+        boundary.append(CLLocationCoordinate2D(latitude:  39.181869,  longitude: -120.117059)) // Top Left
+        boundary.append(CLLocationCoordinate2D(latitude:  39.180908,  longitude: -120.116832)) // Bottom Left
+        boundary.append(CLLocationCoordinate2D(latitude:  39.178951,  longitude: -120.115673)) // Bottom Right
+
+        let polygon = MKPolygon(coordinates: &boundary, count: boundaryPointsCount)
+        map.addOverlay(polygon)
+    }
+
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if overlay is MKPolygon {
+            print("Producing a polygon renderer...")
+            let polygonView = MKPolygonRenderer(overlay: overlay)
+            polygonView.strokeColor = UIColor.magentaColor()
+            return polygonView
+        }
+        else {
+            return nil
+        }
     }
     
     /*
@@ -111,6 +147,9 @@ class RecordViewController: UIViewController, CLLocationManagerDelegate {
         else {
             print("Start recording button tapped")
             currentlyRecording = true
+            
+            // Test: Hijack button toggle to add a boundary and see what happens:
+            addParkBoundary()
         }
         
         refreshRecordButtons()        
